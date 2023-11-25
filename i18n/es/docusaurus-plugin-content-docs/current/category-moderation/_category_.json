@@ -1,8 +1,7 @@
 {
   "label": "Herramientas de moderación",
-  "position": 8,
+  "position": 11,
   "link": {
-    "type": "doc",
-    "id": "category-moderation/category-moderation"
+    "type": "generated-index"
   }
 }

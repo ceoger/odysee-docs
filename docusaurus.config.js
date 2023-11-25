@@ -16,6 +16,28 @@ const config = {
         textColor: '#091E42',
         isCloseable: false,
       },*/
+    typesense: {
+      // Replace this with the name of your index/collection.
+      // It should match the "index_name" entry in the scraper's "config.json" file.
+      typesenseCollectionName: 'Odysee Help',
+
+      typesenseServerConfig: {
+        nodes: [
+          {
+            host: 'typesense-search.odysee.tv',
+            port: 443,
+            protocol: 'https',
+          }
+        ],
+        apiKey: '4GTsCd3uCubegfQOZKE9z6k39LGulcrg',
+      },
+
+      // Optional: Typesense search parameters: https://typesense.org/docs/0.24.0/api/search.html#search-parameters
+      typesenseSearchParameters: {},
+
+      // Optional
+      contextualSearch: true,
+    },
       metadata: [{name: 'keywords', content: 'odysee, help, help hub, support'}],
       navbar: {
         title: '',
@@ -81,12 +103,22 @@ const config = {
               {
 				faicon: "fa-brands fa-facebook",
                 label: 'Facebook',
-                href: 'https://www.facebook.com/OdyseeVideo/',
+                href: 'https://www.facebook.com/OdyseeForever/',
+              },
+              {
+				faicon: "fa-brands fa-instagram",
+                label: 'Instagram',
+                href: 'https://www.instagram.com/odyseeforever/',
+              },
+              {
+				faicon: "fa-brands fa-twitter",
+                label: 'Twitter',
+                href: 'https://twitter.com/odyseeteam',
               },
               {
 				faicon: "fa-brands fa-tiktok",
                 label: 'TikTok',
-                href: 'https://www.tiktok.com/@odyseeteam',
+                href: 'https://www.tiktok.com/@odyseeforever',
               }
 			]
           },
@@ -114,20 +146,15 @@ const config = {
                 href: 'https://odysee.com/$/careers',
               },
               {
+				faicon: "fa-envelope",
+                label: 'help@odysee.com',
+                href: 'mailto:help@odysee.com',
+              },
+              {
 				faicon: "fa-circle-info",
                 label: 'Community Guidelines',
                 to: '/communityguidelines',
-              },
-              {
-				faicon: "fa-star",
-                label: 'Characters',
-                to: '/characters',
-              },
-              {
-				faicon: "fa-timeline",
-                label: 'Timeline',
-                to: '/timeline',
-              },
+              }
             ],
           },
         ],
@@ -142,6 +169,7 @@ const config = {
   tagline: '',
   url: 'https://help.odysee.tv',
   baseUrl: '/',
+  trailingSlash: true,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon-spaceman.png',
@@ -161,58 +189,52 @@ const config = {
       };
     },
   ],
-  themes: [
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        hashed: true,
-		indexBlog: false,
-		docsRouteBasePath: "/",
-		docsDir: "docs",
-        language: ['en', 'es', 'fr', 'de', 'pt'],
-		searchBarShortcutHint: false,
-		explicitSearchResultPath: true,
-        ignoreFiles: [
-		  "category-livestreaming",
-		  "category-basics",
-		  "category-syncprogram",
-		  "category-channels",
-		  "category-interaction",
-		  "category-uploading",
-		  "category-playlists",
-		  "category-monetization",
-		  "category-wallet",
-		  "category-blockchain",
-		  "category-moderation",
-		  "category-contentdiscovery",
-		  "category-categories",
-		  "category-accountcreation",
-		  "category-loggingin",
-		  "category-walkthrough",
-		  "category-faq",
-		  "category-fileuploads",
-		  "category-textuploads",
-		  "category-creatingalivestream",
-		  "category-rewards",
-		  "category-earningsperview",
-		  "category-lbctips",
-		  "category-cashtips",
-		  "category-staking",
-		  "category-monetization/category-earningsperview",
-        ],
-      },
-    ],
-  ],
+  themes: ['docusaurus-theme-search-typesense'],
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: [
+            '/tags/**',
+            '/category-livestreaming/',
+            '/category-basics/',
+            '/category-syncprogram/',
+            '/category-channels/',
+            '/category-interaction/',
+            '/category-uploading/',
+            '/category-playlists/',
+            '/category-monetization/',
+            '/category-wallet/',
+            '/category-blockchain/',
+            '/category-moderation/',
+            '/category-contentdiscovery/',
+            '/category-categories/',
+            '/category-accountcreation/',
+            '/category-loggingin/',
+            '/category-walkthrough/',
+            '/category-faq/',
+            '/category-fileuploads/',
+            '/category-textuploads/',
+            '/category-creatingalivestream/',
+            '/category-rewards/',
+            '/category-earningsperview/',
+            '/category-lbctips/',
+            '/category-cashtips/',
+            '/category-staking/',
+            '/category-monetization/category-earningsperview/',
+          ],
+          filename: 'sitemap.xml',
+        },
         docs: {
           routeBasePath: '/', // Serve the docs at the site's root
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: ({locale, versionDocsDirPath, docPath}) => {
 			if (docPath.endsWith('index.mdx')) { return null; }
+			if (docPath.endsWith('assets.mdx')) { return null; }
 			if (docPath.endsWith('copyrightpolicy.mdx')) { return null; }
 			if (docPath.endsWith('communityguidelines.mdx')) { return null; }
             if (locale !== 'en') {

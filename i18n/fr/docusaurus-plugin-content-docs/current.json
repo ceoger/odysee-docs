@@ -102,5 +102,21 @@
   "sidebar.helphub.category.Content Interaction": {
     "message": "Interaction avec le contenu",
     "description": "The label for category Content Interaction in sidebar helphub"
+  },
+  "sidebar.helphub.category.Memberships": {
+    "message": "Adhésions",
+    "description": "The label for category Memberships in sidebar helphub"
+  },
+  "sidebar.helphub.category.Creator Portal": {
+    "message": "Portail des créateurs",
+    "description": "The label for category Creator Portal in sidebar helphub"
+  },
+  "sidebar.helphub.category.Donor Portal": {
+    "message": "Portail des donateurs",
+    "description": "The label for category Donor Portal in sidebar helphub"
+  },
+  "sidebar.helphub.category.Settings and Customization": {
+    "message": "Paramètres et personnalisation",
+    "description": "The label for category Settings and Customization in sidebar helphub"
   }
 }

@@ -25,13 +25,18 @@ import { faReddit } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 library.add(faDiscord);
 library.add(faReddit);
 library.add(faFacebook);
 library.add(faTiktok);
 library.add(faGithub);
+library.add(faInstagram);
+library.add(faTwitter);
 
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
@@ -44,6 +49,7 @@ import { faHandHoldingDollar } from '@fortawesome/free-solid-svg-icons';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { faUnlockKeyhole } from '@fortawesome/free-solid-svg-icons';
 
+library.add(faEnvelope);
 library.add(faHouse);
 library.add(faShieldHalved);
 library.add(faBook);
@@ -55,19 +61,6 @@ library.add(faCirclePlay);
 library.add(faHandHoldingDollar);
 library.add(faRightToBracket);
 library.add(faUnlockKeyhole);
-
-
-/*import * as Icons from '@fortawesome/free-solid-svg-icons';
-import * as BrandIcons from '@fortawesome/free-brands-svg-icons';
-const iconList = Object.keys(Icons)
-  .filter((key) => key !== 'fas' && key !== 'prefix')
-  .map((icon) => Icons[icon]);
-library.add(...iconList);
-const brandIconList = Object.keys(BrandIcons)
-  .filter((key) => key !== 'fas' && key !== 'prefix')
-  .map((icon) => BrandIcons[icon]);
-library.add(...brandIconList);*/
-
 
 export default {
   ...MDXComponents,
